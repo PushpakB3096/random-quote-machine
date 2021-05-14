@@ -30,34 +30,46 @@ const App = () => {
   };
 
   return (
-    <div id="quote-box">
-      <span id="text">
-        {/* randomly displaying a quote from the array */}
-        <i className="fa fa-quote-left">&nbsp;</i>
-        {quotes && quotes[randomIdx] && quotes[randomIdx].quote}
-      </span>
-      <div id="author">
-        - {quotes && quotes[randomIdx] && quotes[randomIdx].author}
+    <div>
+      <div id="quote-box">
+        <span id="text">
+          {/* randomly displaying a quote from the array */}
+          <i className="fa fa-quote-left">&nbsp;</i>
+          {quotes && quotes[randomIdx] && quotes[randomIdx].quote}
+        </span>
+        <div id="author">
+          - {quotes && quotes[randomIdx] && quotes[randomIdx].author}
+        </div>
+        <div className="buttons">
+          <a
+            className="button"
+            id="tweet-quote"
+            title="Tweet this quote!"
+            target="_blank"
+            rel="noreferrer"
+            href={`https://twitter.com/intent/tweet?hashtags=quotes&text=${encodeURIComponent(
+              '"' +
+                (quotes && quotes[randomIdx] && quotes[randomIdx].quote) +
+                '" - ' +
+                (quotes && quotes[randomIdx] && quotes[randomIdx].author)
+            )}`}
+          >
+            Tweet
+          </a>
+          <button className="button" id="new-quote" onClick={getNewQuote}>
+            New Quote
+          </button>
+        </div>
       </div>
-      <div className="buttons">
+      <div className="footer">
+        by{" "}
         <a
-          className="button"
-          id="tweet-quote"
-          title="Tweet this quote!"
+          href="https://www.linkedin.com/in/pushpak-bhattacharya/"
           target="_blank"
           rel="noreferrer"
-          href={`https://twitter.com/intent/tweet?hashtags=quotes&text=${encodeURIComponent(
-            '"' +
-              (quotes && quotes[randomIdx] && quotes[randomIdx].quote) +
-              '" - ' +
-              (quotes && quotes[randomIdx] && quotes[randomIdx].author)
-          )}`}
         >
-          Tweet
+          Pushpak Bhattacharya
         </a>
-        <button className="button" id="new-quote" onClick={getNewQuote}>
-          New Quote
-        </button>
       </div>
     </div>
   );

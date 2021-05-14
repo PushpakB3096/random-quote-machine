@@ -85,3 +85,18 @@ body {
   width: 50px;
   text-decoration: none;
 }
+
+.footer {
+  width: 450px;
+  text-align: center;
+  display: block;
+  margin: 15px auto 30px auto;
+  font-size: 1em;
+  color: #fff;
+}
+
+.footer a {
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+}
