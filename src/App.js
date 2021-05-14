@@ -3,6 +3,7 @@ import axios from "axios";
 
 const App = () => {
   const [quotes, setQuotes] = useState([]);
+  const [randomIdx, setRandomIdx] = useState(Math.round(Math.random() * 100));
 
   // getting list of quotes on load
   useEffect(async () => {
@@ -19,8 +20,10 @@ const App = () => {
     }
   }, []);
 
-  // returns random number from 0 to length of quote
-  const randomIdx = Math.round(Math.random() * quotes.length);
+  // generates a random quote index
+  const getNewQuote = () => {
+    setRandomIdx(Math.round(Math.random() * quotes.length));
+  };
 
   return (
     <div id="quote-box">
@@ -40,7 +43,7 @@ const App = () => {
         >
           Tweet
         </a>
-        <button className="button" id="new-quote">
+        <button className="button" id="new-quote" onClick={getNewQuote}>
           New Quote
         </button>
       </div>
