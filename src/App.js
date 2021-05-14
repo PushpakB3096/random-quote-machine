@@ -7,6 +7,7 @@ const App = () => {
 
   // getting list of quotes on load
   useEffect(() => {
+    // async f
     async function getQuotes() {
       try {
         const resp = await axios.get(
@@ -43,7 +44,14 @@ const App = () => {
           className="button"
           id="tweet-quote"
           title="Tweet this quote!"
-          target="_top"
+          target="_blank"
+          rel="noreferrer"
+          href={`https://twitter.com/intent/tweet?hashtags=quotes&text=${encodeURIComponent(
+            '"' +
+              (quotes && quotes[randomIdx] && quotes[randomIdx].quote) +
+              '" - ' +
+              (quotes && quotes[randomIdx] && quotes[randomIdx].author)
+          )}`}
         >
           Tweet
         </a>
