@@ -20,7 +20,8 @@ const App = () => {
   }, []);
 
   // returns random number from 0 to 100
-  const randomIdx = Math.round(Math.random() * 101);
+  const randomIdx = Math.round(Math.random() * quotes.length);
+  console.log({ randomIdx });
 
   return (
     <div id="quote-box">
