@@ -19,7 +19,7 @@ const App = () => {
     }
   }, []);
 
-  // returns random number from 0 to 100
+  // returns random number from 0 to length of quote
   const randomIdx = Math.round(Math.random() * quotes.length);
 
   return (
@@ -31,12 +31,19 @@ const App = () => {
       <div id="author">
         {quotes && quotes[randomIdx] && quotes[randomIdx].author}
       </div>
-      <a href="#" id="new-quote">
-        new-quote
-      </a>
-      <a href="#" id="tweet-quote">
-        tweet-quote
-      </a>
+      <div className="buttons">
+        <a
+          className="button"
+          id="tweet-quote"
+          title="Tweet this quote!"
+          target="_top"
+        >
+          Tweet
+        </a>
+        <button className="button" id="new-quote">
+          New Quote
+        </button>
+      </div>
     </div>
   );
 };
