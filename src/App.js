@@ -21,14 +21,13 @@ const App = () => {
 
   // returns random number from 0 to 100
   const randomIdx = Math.round(Math.random() * quotes.length);
-  console.log({ randomIdx });
 
   return (
     <div id="quote-box">
-      <div id="text">
+      <span id="text">
         {/* randomly displaying a quote from the array */}
         {quotes && quotes[randomIdx] && quotes[randomIdx].quote}
-      </div>
+      </span>
       <div id="author">
         {quotes && quotes[randomIdx] && quotes[randomIdx].author}
       </div>
