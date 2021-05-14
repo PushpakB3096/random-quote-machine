@@ -17,6 +17,10 @@ const colors = [
   "#73A857",
 ];
 
+// quotes API url
+const API =
+  "https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json";
+
 const App = () => {
   const [quotes, setQuotes] = useState([]);
   const [randomIdx, setRandomIdx] = useState(Math.round(Math.random() * 100));
@@ -27,9 +31,7 @@ const App = () => {
     // async f
     async function getQuotes() {
       try {
-        const resp = await axios.get(
-          "https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json"
-        );
+        const resp = await axios.get(API);
         // setting quotes to local state after we receive it
         if (resp.data.quotes.length) {
           setQuotes(resp.data.quotes);
