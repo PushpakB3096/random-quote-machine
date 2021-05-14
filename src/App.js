@@ -29,10 +29,11 @@ const App = () => {
     <div id="quote-box">
       <span id="text">
         {/* randomly displaying a quote from the array */}
+        <i className="fa fa-quote-left">&nbsp;</i>
         {quotes && quotes[randomIdx] && quotes[randomIdx].quote}
       </span>
       <div id="author">
-        {quotes && quotes[randomIdx] && quotes[randomIdx].author}
+        - {quotes && quotes[randomIdx] && quotes[randomIdx].author}
       </div>
       <div className="buttons">
         <a
